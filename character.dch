@@ -10,9 +10,9 @@
 },
 "default_portrait": "New portrait",
 "description": "",
-"display_name": "character",
+"display_name": " Ins Celeste",
 "mirror": false,
-"nicknames": [""],
+"nicknames": ["Ins"],
 "offset": Vector2(0, 0),
 "portraits": {
 "New portrait": {
