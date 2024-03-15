@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://p6s73okthcfx"]
+
+[ext_resource type="Texture2D" uid="uid://duj82jgrymj1k" path="res://graphics/car/main.png" id="1_3xu78"]
+[ext_resource type="Texture2D" uid="uid://bfdq3ow5wssx2" path="res://graphics/car/turret.png" id="2_4wyl4"]
+
+[node name="Car" type="Node2D"]
+
+[node name="MainImage" type="Sprite2D" parent="."]
+position = Vector2(457, 287)
+texture = ExtResource("1_3xu78")
+
+[node name="TurretImage" type="Sprite2D" parent="MainImage"]
+position = Vector2(-1, 22)
+texture = ExtResource("2_4wyl4")

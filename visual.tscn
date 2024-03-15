@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b41w88a4e4psx"]
+
+[ext_resource type="Script" path="res://visual.gd" id="1_7gd4b"]
+[ext_resource type="Script" path="res://addons/dialogic/Core/DialogicGameHandler.gd" id="2_4qjd1"]
+
+[node name="Visual" type="Node2D"]
+script = ExtResource("1_7gd4b")
+
+[node name="DialogicGameHandler" type="Node" parent="."]
+script = ExtResource("2_4qjd1")

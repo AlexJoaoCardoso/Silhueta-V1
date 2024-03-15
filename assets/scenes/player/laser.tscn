@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://calapur4q64du"]
+
+[ext_resource type="Script" path="res://assets/scenes/player/laser.gd" id="1_ss48a"]
+[ext_resource type="Shader" uid="uid://ba8wta3b4s8g3" path="res://graphics/projectiles/laser.tres" id="2_wgaka"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eun1p"]
+resource_local_to_scene = true
+shader = ExtResource("2_wgaka")
+shader_parameter/BlueOrRed = 1
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d6e06"]
+radius = 6.0
+height = 66.0
+
+[node name="Laser" type="Area2D"]
+collision_mask = 3
+script = ExtResource("1_ss48a")
+
+[node name="Blue" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_eun1p")
+position = Vector2(0, -105)
+rotation = -1.5708
+scale = Vector2(0.414505, 0.414505)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -102)
+shape = SubResource("CapsuleShape2D_d6e06")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

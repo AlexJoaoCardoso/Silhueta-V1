@@ -1,0 +1,27 @@
+[background arg="res://OIG1 (1).jpg" fade="0.0"]
+leave --All--
+A noite, nos corredores perto da sala da diretoria, você encontra Ins flutuando em direção ao elevador.
+- Segui-la
+	Você se esgueira pelo corredor e antes dela apertar o botão 	você é surpreendido por um texto em seu rosto.
+	join character 0 [animation="Bounce In"]
+	character: Seus pés parecem passos de elefetanes sabia?
+	- Eu só tava indo para meu quarto
+		character: O dormitório dos humanoides não é por esse caminho...
+		jump timeline/
+	- ...
+		character: *Suspira* Olha eu não ligo de você estar curioso por causa dos rumores que andam rolando, a senhora Stella não me considera bem uma filha eu sei bem disso.
+		- Porque acha isso?
+			character: Não sei, eu só, sinto-
+			Um som de gatilho é ecoado pelos corredores
+			character: ?
+			Você desmaia
+			[end_timeline]
+		- ...
+			character: Eu só queria ser-
+			Um som de gatilho é ecoado pelos corredores
+			character: ?
+			Você desmaia
+			[end_timeline]
+- Voltar para o quarto
+	jump timeline/
+[end_timeline]

@@ -1,0 +1,314 @@
+[gd_scene load_steps=21 format=3 uid="uid://bcv3pwowyewxf"]
+
+[ext_resource type="PackedScene" uid="uid://85f5bjr7lx6o" path="res://assets/scenes/player/player.tscn" id="1_nfvdl"]
+[ext_resource type="Script" path="res://assets/scenes/levels/level.gd" id="1_tfdym"]
+[ext_resource type="Texture2D" uid="uid://d4l7f00wdcfwr" path="res://graphics/ground/stones.png" id="2_fudgj"]
+[ext_resource type="Texture2D" uid="uid://cmy4he3cct33n" path="res://graphics/tilesets/interior.png" id="3_vx7g2"]
+[ext_resource type="Texture2D" uid="uid://d1h834356ukd6" path="res://graphics/tilesets/soil.png" id="4_71m6p"]
+[ext_resource type="PackedScene" uid="uid://fxc62ajioxwf" path="res://assets/scenes/objects/wall.tscn" id="5_676de"]
+[ext_resource type="Texture2D" uid="uid://cxcvt6fpo41br" path="res://graphics/decals/moss/moss_2.png" id="5_qq8c8"]
+[ext_resource type="Script" path="res://assets/scenes/levels/drones.gd" id="8_3hj63"]
+[ext_resource type="PackedScene" uid="uid://bedv7k8jnaqy5" path="res://assets/scenes/enemies/scout.tscn" id="10_evgbl"]
+[ext_resource type="Texture2D" uid="uid://bt5g7kblfi552" path="res://graphics/ui/progress_bar/progress.png" id="10_fyany"]
+[ext_resource type="FontFile" uid="uid://k4gts5hs2do8" path="res://graphics/ui/subatomic.tsoonami.ttf" id="10_n7h4b"]
+[ext_resource type="Texture2D" uid="uid://byhbv1sae2ays" path="res://graphics/ui/crosshair159.png" id="10_vkukx"]
+[ext_resource type="Texture2D" uid="uid://byy8xjv5jd4fq" path="res://graphics/ui/progress_bar/over.png" id="11_bmct2"]
+[ext_resource type="Shader" uid="uid://dctcw0wt6ijm5" path="res://assets/scenes/levels/boss_hp.tres" id="14_egxeu"]
+[ext_resource type="Script" path="res://assets/scenes/levels/Restart.gd" id="14_rqsen"]
+[ext_resource type="Script" path="res://assets/scenes/levels/Quit.gd" id="16_uyrix"]
+[ext_resource type="Script" path="res://assets/scenes/levels/Resume.gd" id="16_ybf1r"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6ww6v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3dfa4"]
+shader = ExtResource("14_egxeu")
+shader_parameter/BlueOrRed = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wnr2a"]
+shader = ExtResource("14_egxeu")
+shader_parameter/BlueOrRed = 0
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_tfdym")
+
+[node name="Ground" type="Node2D" parent="."]
+
+[node name="Images" type="Node2D" parent="Ground"]
+
+[node name="Stones" type="Sprite2D" parent="Ground/Images"]
+position = Vector2(-902, -484)
+texture = ExtResource("2_fudgj")
+
+[node name="Stones" type="Sprite2D" parent="Ground/Images/Stones"]
+position = Vector2(1872, 0)
+texture = ExtResource("2_fudgj")
+
+[node name="Stones2" type="Sprite2D" parent="Ground/Images/Stones"]
+position = Vector2(1872, 1228)
+texture = ExtResource("2_fudgj")
+
+[node name="Stones3" type="Sprite2D" parent="Ground/Images/Stones"]
+position = Vector2(0, 1228)
+texture = ExtResource("2_fudgj")
+
+[node name="Stones4" type="Sprite2D" parent="Ground/Images/Stones"]
+position = Vector2(1852, 2264)
+texture = ExtResource("2_fudgj")
+
+[node name="Stones5" type="Sprite2D" parent="Ground/Images/Stones"]
+position = Vector2(-20, 2264)
+texture = ExtResource("2_fudgj")
+
+[node name="Interior" type="Sprite2D" parent="Ground/Images"]
+position = Vector2(-345, 526)
+texture = ExtResource("3_vx7g2")
+
+[node name="Soil" type="Sprite2D" parent="Ground/Images"]
+position = Vector2(20, -589)
+texture = ExtResource("4_71m6p")
+
+[node name="Moss2" type="Sprite2D" parent="Ground/Images"]
+position = Vector2(-296, 73)
+texture = ExtResource("5_qq8c8")
+
+[node name="Collisions" type="StaticBody2D" parent="Ground"]
+
+[node name="Player" parent="." instance=ExtResource("1_nfvdl")]
+unique_name_in_owner = true
+position = Vector2(-319, 106)
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource("5_676de")]
+position = Vector2(-456, -1156)
+
+[node name="Wall5" parent="Walls" instance=ExtResource("5_676de")]
+position = Vector2(923, -660)
+rotation = 1.5708
+
+[node name="Wall2" parent="Walls" instance=ExtResource("5_676de")]
+position = Vector2(455, -1156)
+
+[node name="Wall4" parent="Walls" instance=ExtResource("5_676de")]
+position = Vector2(1363, -1156)
+
+[node name="Wall6" parent="Walls" instance=ExtResource("5_676de")]
+position = Vector2(923, 250)
+rotation = 1.5708
+
+[node name="Wall7" parent="Walls" instance=ExtResource("5_676de")]
+position = Vector2(1882, 1055)
+rotation = 1.5708
+
+[node name="Wall8" parent="Walls" instance=ExtResource("5_676de")]
+position = Vector2(1882, 1965)
+rotation = 1.5708
+
+[node name="Wall9" parent="Walls" instance=ExtResource("5_676de")]
+position = Vector2(-1028, -664)
+rotation = 1.5708
+
+[node name="Wall10" parent="Walls" instance=ExtResource("5_676de")]
+position = Vector2(-1028, 246)
+rotation = 1.5708
+
+[node name="Wall11" parent="Walls" instance=ExtResource("5_676de")]
+position = Vector2(-1884, 1055)
+rotation = 1.5708
+
+[node name="Wall12" parent="Walls" instance=ExtResource("5_676de")]
+position = Vector2(-1884, 1965)
+rotation = 1.5708
+
+[node name="Wall3" parent="Walls" instance=ExtResource("5_676de")]
+position = Vector2(-1365, -1156)
+
+[node name="Wall13" parent="Walls" instance=ExtResource("5_676de")]
+position = Vector2(-507, 641)
+
+[node name="Wall14" parent="Walls" instance=ExtResource("5_676de")]
+position = Vector2(404, 641)
+
+[node name="Wall15" parent="Walls" instance=ExtResource("5_676de")]
+position = Vector2(1363, 2357)
+
+[node name="Wall16" parent="Walls" instance=ExtResource("5_676de")]
+position = Vector2(-1365, 2357)
+
+[node name="Drones" type="Node2D" parent="."]
+script = ExtResource("8_3hj63")
+
+[node name="Scouts" type="Node2D" parent="."]
+
+[node name="Boss" parent="Scouts" instance=ExtResource("10_evgbl")]
+unique_name_in_owner = true
+position = Vector2(-4, -367)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(1.27, 1.27)
+metadata/_edit_use_anchors_ = true
+
+[node name="HealthBar" type="PanelContainer" parent="UI"]
+layout_mode = 0
+offset_left = -937.008
+offset_top = -462.78
+offset_right = -590.008
+offset_bottom = -358.78
+metadata/_edit_use_anchors_ = true
+
+[node name="Progress" type="Sprite2D" parent="UI/HealthBar"]
+position = Vector2(31, 58)
+scale = Vector2(300, 30)
+texture = ExtResource("10_fyany")
+centered = false
+region_enabled = true
+region_rect = Rect2(1, 1, 1, 1)
+
+[node name="Over" type="Sprite2D" parent="UI/HealthBar"]
+position = Vector2(181, 73)
+texture = ExtResource("11_bmct2")
+
+[node name="HP" type="RichTextLabel" parent="UI"]
+layout_mode = 2
+offset_left = -935.008
+offset_top = -463.78
+offset_right = -588.008
+offset_bottom = -359.78
+theme_override_fonts/normal_font = ExtResource("10_n7h4b")
+theme_override_fonts/bold_font = ExtResource("10_n7h4b")
+bbcode_enabled = true
+text = "
+	[font_size=32][b]HP[/b]: 100/100[/font_size]"
+
+[node name="BossHealthBar" type="PanelContainer" parent="UI"]
+material = SubResource("ShaderMaterial_6ww6v")
+layout_mode = 0
+offset_left = -393.701
+offset_top = -466.142
+offset_right = 367.299
+offset_bottom = -364.142
+
+[node name="Progress" type="Sprite2D" parent="UI/BossHealthBar"]
+material = SubResource("ShaderMaterial_3dfa4")
+position = Vector2(31, 58)
+scale = Vector2(695, 30)
+texture = ExtResource("10_fyany")
+centered = false
+region_enabled = true
+region_rect = Rect2(1, 1, 1, 1)
+
+[node name="Over" type="Sprite2D" parent="UI/BossHealthBar"]
+material = SubResource("ShaderMaterial_wnr2a")
+position = Vector2(378.5, 73)
+scale = Vector2(2.31667, 1)
+texture = ExtResource("11_bmct2")
+
+[node name="BossHP" type="RichTextLabel" parent="UI"]
+layout_mode = 2
+offset_left = -393.701
+offset_top = -466.142
+offset_right = 367.299
+offset_bottom = -364.142
+theme_override_fonts/normal_font = ExtResource("10_n7h4b")
+theme_override_fonts/bold_font = ExtResource("10_n7h4b")
+bbcode_enabled = true
+text = "
+		[font_size=34][b]Boss[/b][/font_size]"
+
+[node name="Kills" type="RichTextLabel" parent="UI"]
+visible = false
+layout_mode = 2
+offset_left = -128.0
+offset_top = -289.0
+offset_right = 127.0
+offset_bottom = -260.0
+theme_override_fonts/normal_font = ExtResource("10_n7h4b")
+theme_override_fonts/bold_font = ExtResource("10_n7h4b")
+bbcode_enabled = true
+text = "[center][font_size=32][b]Kills[/b]: 10/10[/font_size][/center]"
+tab_size = 2
+
+[node name="Crosshair" type="Sprite2D" parent="UI"]
+texture = ExtResource("10_vkukx")
+
+[node name="Restart" type="Button" parent="UI"]
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = -1
+offset_left = -83.0
+offset_top = -15.0
+offset_right = 83.0
+offset_bottom = 71.0
+text = "Restart Game"
+script = ExtResource("14_rqsen")
+
+[node name="Resume" type="Button" parent="UI"]
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = -1
+offset_left = -83.0
+offset_top = -104.0
+offset_right = 83.0
+offset_bottom = -18.0
+text = "Resume"
+script = ExtResource("16_ybf1r")
+
+[node name="Quit" type="Button" parent="UI"]
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = -1
+offset_left = -83.0
+offset_top = 76.0
+offset_right = 83.0
+offset_bottom = 162.0
+text = "Quit Game"
+script = ExtResource("16_uyrix")
+
+[node name="Victory" type="RichTextLabel" parent="UI"]
+visible = false
+layout_mode = 2
+offset_left = -201.0
+offset_top = -179.0
+offset_right = 204.0
+offset_bottom = -126.0
+theme_override_fonts/normal_font = ExtResource("10_n7h4b")
+theme_override_fonts/bold_font = ExtResource("10_n7h4b")
+bbcode_enabled = true
+text = "[font_size=64][center]Victory![/center][/font_size]"
+scroll_active = false
+
+[node name="Defeat" type="RichTextLabel" parent="UI"]
+visible = false
+layout_mode = 2
+offset_left = -202.0
+offset_top = -178.0
+offset_right = 203.0
+offset_bottom = -125.0
+theme_override_fonts/normal_font = ExtResource("10_n7h4b")
+theme_override_fonts/bold_font = ExtResource("10_n7h4b")
+bbcode_enabled = true
+text = "[font_size=64][center]Defeat..[/center][/font_size]"
+scroll_active = false
+
+[node name="Paused" type="RichTextLabel" parent="UI"]
+visible = false
+layout_mode = 2
+offset_left = -202.0
+offset_top = -177.0
+offset_right = 203.0
+offset_bottom = -124.0
+theme_override_fonts/normal_font = ExtResource("10_n7h4b")
+theme_override_fonts/bold_font = ExtResource("10_n7h4b")
+bbcode_enabled = true
+text = "[font_size=64][center]Paused[/center][/font_size]"
+scroll_active = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.745, 0.745)
+
+[node name="Bullets" type="Node2D" parent="."]
